@@ -7,5 +7,4 @@ router.get("/", CharacterController.getAll);
 router.get("/id/:_id", CharacterController.getById);
 router.get("/search/:name", CharacterController.getProductsByName);
 router.delete("/id/:_id", CharacterController.delete);
-router.put("/id/:_id",  CharacterController.update);
 module.exports = router;

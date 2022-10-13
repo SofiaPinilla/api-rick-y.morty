@@ -55,18 +55,6 @@ const CharacterController = {
         message: "there was a problem trying to remove the character",
       });
     }
-  },
-  async update(req, res) {
-    try {
-      const character = await Character.findByIdAndUpdate(
-        req.params._id,
-        req.body,
-        { new: true }
-      );
-      res.send({ message: "character successfully updated", character });
-    } catch (error) {
-      console.error(error);
-    }
-  },
+  }
 };
 module.exports = CharacterController;
