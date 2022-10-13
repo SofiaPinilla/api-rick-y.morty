@@ -9,13 +9,17 @@ const CharacterController = {
       console.error(error);
       res
         .status(500)
-        .send({ message: "there was a problem trying to create the character" });
+        .send({
+          message: "there was a problem trying to create the character",
+        });
     }
   },
   async getAll(req, res) {
     try {
+      const { page = 1, limit = 10 } = req.query;
       const characters = await Character.find()
-      
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
       res.send(characters);
     } catch (error) {
       console.error(error);
